@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import { useContext } from 'react';
 import { ModalDeleteContext } from '../../providers/ModalDeleted';
-import {Background, ModalWrapper,ModalContent,  InteractionForm} from './style'
+import { ModalWrapper,ModalContent,  InteractionForm, Background} from './style'
 import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from 'react-hook-form';
 import { ProductsContext } from '../../providers/Products';
@@ -29,7 +29,7 @@ const ModalDelete = () => {
   return (
     <>
       {isModalDeletedShowing ? (
-        <Background >
+        <Background>
             <ModalWrapper >
               <ModalContent>
                   <InteractionForm>

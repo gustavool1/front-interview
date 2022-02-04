@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import { useContext } from 'react';
 import { ModalEditContext } from '../../providers/ModalEdit';
-import {Background, ModalWrapper,ModalContent, Form, InteractionForm} from './style'
+import { ModalWrapper,ModalContent, Form, InteractionForm, Background} from './style'
 import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from 'react-hook-form';
 import { ProductsContext } from '../../providers/Products';
@@ -35,7 +35,7 @@ const ModalEdit = () => {
               <ModalContent>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <InteractionForm>
-                    <h1>Edite</h1>
+                    <h1>Editar</h1>
                     <CloseIcon sx={{cursor:"pointer", color:"red"}} onClick={settingShowingModal}/>
                   </InteractionForm>
                 <TextField sx={{m:1}} label="Nome do Produto" variant="outlined" {...register("name")} helperText={errors.name?.message} error={!!errors.name}/>

@@ -1,6 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import { useContext } from 'react';
-import {Background, ModalWrapper,ModalContent, InteractionForm, Form} from './style'
+import { ModalWrapper,ModalContent, InteractionForm, Form, Background} from './style'
 import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
@@ -14,7 +14,7 @@ interface ProductData{
   id:number
 }
 const ModalCreateProduct = () => {
-  const {isModalCreateProductdShowing, settingActualCreateProduct, settingShowingModalCreateProduct} = useContext(ModalCreateProductContext)
+  const {isModalCreateProductdShowing, settingShowingModalCreateProduct} = useContext(ModalCreateProductContext)
   const { createProduct } = useContext(ProductsContext)
   const schema = yup.object().shape({
     name:yup.string().required("Nome obrigatório"),
@@ -28,7 +28,7 @@ const ModalCreateProduct = () => {
   return (
     <>
       {isModalCreateProductdShowing ? (
-        <Background >
+        <Background>
             <ModalWrapper >
               <ModalContent>
                 <Form onSubmit={handleSubmit(onSubmit)}>

@@ -61,6 +61,9 @@ export const InteractionForm = styled.div`
   justify-content:space-between;
   align-items:center;
   padding: 0px 5px;
+  @media screen and (max-width:768px) {
+    width:250px;
+  }
 
   
 `

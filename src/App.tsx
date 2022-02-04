@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProductsContainer from './components/ProductsContainer';
 import NavBar from './components/NavBar';
@@ -13,11 +11,11 @@ function App() {
   
   return (
     <div className="App">
+      <ModalDelete/>
+      <ModalEdit/>
       <NavBar/> 
       <ModalCreateProduct/>
       <CreateProduct/>
-      <ModalDelete/>
-      <ModalEdit/>
       <ProductsContainer/>
     </div>
   );

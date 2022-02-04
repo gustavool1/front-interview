@@ -78,12 +78,13 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
     }
 
     const createProduct = (data:ProductUpdated) =>{
+        data.price = Number(data.price)
+        console.log(data)
         api.post(`/products`, data)
         .then((response)=> {
             getProducts()
-            settingShowingModal()
-
-            toast.success("Item editado com sucesso")
+            settingShowingModalCreateProduct()
+            toast.success("Item criado com sucesso")
 
         })
     }

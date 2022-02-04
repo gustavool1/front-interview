@@ -12,8 +12,8 @@ export const Background = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 450px;
   display:flex;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
@@ -44,10 +44,8 @@ export const ModalContent = styled.div`
 
 export const Form = styled.form`
   width:100%;
-
   display:flex;
   flex-direction:column;
-
   @media screen and (max-width:768px) {
     width:300px;
   }
@@ -56,10 +54,14 @@ export const Form = styled.form`
 `
 
 export const InteractionForm = styled.div`
+  width:320px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:20px;
-
+  padding: 0px 20px;
+  @media screen and (max-width:768px) {
+    width:250px;
+  }
   
 `
+
