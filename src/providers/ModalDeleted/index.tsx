@@ -19,10 +19,8 @@ export const ModalDeleteProvider = ({ children }:ModalDeleteProviderProps) =>{
    
     const settingShowingModalDeleted = () =>{
         setIsModalDeletedShowing(!isModalDeletedShowing)
-        console.log('aquiii', isModalDeletedShowing)
     }
     const settingActualDeleted = (productId:number) =>{
-        console.log(productId, 'settingActualDeleted')
         setActualDelete(productId)
         settingShowingModalDeleted()
     } 

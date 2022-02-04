@@ -21,7 +21,6 @@ export const ModalEditProvider = ({ children }:ModalEditProviderProps) =>{
         setIsModalEditShowing(!isModalEditShowing)
     }
     const settingActualEdited = (productId:number) =>{
-        console.log(productId, 'settingActualEdited')
         setActualEdited(productId)
         settingShowingModal()
     } 

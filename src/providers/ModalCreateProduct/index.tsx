@@ -19,7 +19,6 @@ export const ModalCreateProductProvider = ({ children }:ModalCreateProductProvid
    
     const settingShowingModalCreateProduct = () =>{
         setIsModalCreateProductdShowing(!isModalCreateProductdShowing)
-        console.log('aquiii', isModalCreateProductdShowing)
     }
     const settingActualCreateProduct = (productId:number) =>{
         setActualCreateProduct(productId)

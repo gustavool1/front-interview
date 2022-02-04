@@ -1,27 +1,15 @@
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import { useContext } from 'react';
 import { ModalDeleteContext } from '../../providers/ModalDeleted';
 import { ModalWrapper,ModalContent,  InteractionForm, Background} from './style'
 import CloseIcon from '@mui/icons-material/Close';
-import { useForm } from 'react-hook-form';
 import { ProductsContext } from '../../providers/Products';
-import * as yup from "yup";
-import { yupResolver } from '@hookform/resolvers/yup'
-interface ProductData{
-  name:string,
-  price:number,
-  image:string,
-  id:number
-}
+
 const ModalDelete = () => {
-  const {settingShowingModalDeleted,settingActualDeleted,isModalDeletedShowing, actualDelete} = useContext(ModalDeleteContext)
+  const {settingShowingModalDeleted,isModalDeletedShowing, actualDelete} = useContext(ModalDeleteContext)
   const { deleteProduct } = useContext(ProductsContext)
   
-  const schema = yup.object().shape({
-    name:yup.string().required("Nome obrigatório"),
-    price:yup.string().required("Preço obrigatório")
-  })
-  const { register, handleSubmit, formState:{ errors } } = useForm<ProductData> ({resolver:yupResolver(schema)})
+
 
   const handleDelete = () =>{
     deleteProduct(actualDelete)

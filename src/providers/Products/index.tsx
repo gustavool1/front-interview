@@ -45,7 +45,7 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
          .then((response)=> {
             setProducts(response.data)
          })
-          .catch((err)=> console.log(err))
+         .catch(()=> toast.error("Ocorreu um erro, tente novamente"))
     }
 
     const editProduct = (product:ProductUpdated) =>{
@@ -64,7 +64,8 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
             toast.success("Item editado com sucesso")
 
         })
-         .catch((err)=> console.log(err))
+        .catch(()=> toast.error("Ocorreu um erro, tente novamente"))
+        
     }
 
     const deleteProduct = (id:number) => {
@@ -76,10 +77,8 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
 
         })
     }
-
     const createProduct = (data:ProductUpdated) =>{
         data.price = Number(data.price)
-        console.log(data)
         api.post(`/products`, data)
         .then((response)=> {
             getProducts()
@@ -87,6 +86,7 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
             toast.success("Item criado com sucesso")
 
         })
+        .catch(()=> toast.error("Ocorreu um erro, tente novamente"))
     }
    
     return(

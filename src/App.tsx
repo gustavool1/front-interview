@@ -5,9 +5,16 @@ import ModalEdit from './components/ModalEdit';
 import ModalDelete from './components/ModalDelete';
 import CreateProduct from './components/CreateProduct';
 import ModalCreateProduct from './components/ModalCreateProduct';
+import { useContext } from 'react';
+import { ProductsContext } from './providers/Products';
+import { useEffect } from 'react';
 
 function App() {
 
+  const { getProducts } =useContext(ProductsContext)
+  useEffect(()=>{
+    getProducts()
+  },[])
   
   return (
     <div className="App">
