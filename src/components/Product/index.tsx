@@ -20,7 +20,6 @@ interface ProductProps{
   }
 }
 const Product = ({product}: ProductProps) =>{
-    console.log(product)
     const {settingActualEdited, settingShowingModal} = useContext(ModalEditContext)
     const { settingActualDeleted } = useContext(ModalDeleteContext)
     return(
