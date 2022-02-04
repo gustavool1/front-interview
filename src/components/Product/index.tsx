@@ -16,10 +16,11 @@ interface ProductProps{
   image: string,
   name: string,
   price: number,
-  updated_at: any
+  updated_at: string
   }
 }
 const Product = ({product}: ProductProps) =>{
+    console.log(product)
     const {settingActualEdited, settingShowingModal} = useContext(ModalEditContext)
     const { settingActualDeleted } = useContext(ModalDeleteContext)
     return(
