@@ -4,9 +4,9 @@ import './App.css';
 import ProductsContainer from './components/ProductsContainer';
 import NavBar from './components/NavBar';
 import ModalEdit from './components/ModalEdit';
-import { useContext } from 'react';
-import { ModalEditContext } from './providers/ModalEdit';
 import ModalDelete from './components/ModalDelete';
+import CreateProduct from './components/CreateProduct';
+import ModalCreateProduct from './components/ModalCreateProduct';
 
 function App() {
 
@@ -14,6 +14,8 @@ function App() {
   return (
     <div className="App">
       <NavBar/> 
+      <ModalCreateProduct/>
+      <CreateProduct/>
       <ModalDelete/>
       <ModalEdit/>
       <ProductsContainer/>

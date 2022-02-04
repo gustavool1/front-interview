@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ModalCreateProductProvider } from "./ModalCreateProduct";
 import { ModalDeleteProvider } from "./ModalDeleted";
 import { ModalEditProvider } from "./ModalEdit";
 
@@ -11,9 +12,11 @@ const Providers = ({children}:ProviderProps) =>{
     return(
         <ModalEditProvider>
                 <ModalDeleteProvider>
-                    <ProductsProvider>
-                        {children}
-                    </ProductsProvider>
+                    <ModalCreateProductProvider>
+                        <ProductsProvider>
+                            {children}
+                        </ProductsProvider>
+                    </ModalCreateProductProvider>
                 </ModalDeleteProvider>
         </ModalEditProvider>
     )

@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import { ModalEditContext } from "../ModalEdit";
 import { ModalDeleteContext } from "../ModalDeleted";
+import { ModalCreateProductContext } from "../ModalCreateProduct";
 interface ProductsProviderProps{
     children:ReactNode
 }
@@ -24,19 +25,19 @@ interface ProductUpdated{
 }
 interface ProductProviderData{
     products:Product[],
-    teste:number,
     getProducts: () => void,
     editProduct: (product:ProductUpdated) => void
-    deleteProduct:(id:number) => void 
+    deleteProduct:(id:number) => void,
+    createProduct :(product:ProductUpdated) => void
 }
 
 export const ProductsContext = createContext <ProductProviderData>({} as ProductProviderData)
 
 export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
     const [ products, setProducts ] = useState<Product[]>([])
-    const [teste] = useState(1)
     const { settingShowingModal } = useContext(ModalEditContext)
     const { settingShowingModalDeleted } = useContext(ModalDeleteContext)
+    const { settingShowingModalCreateProduct} = useContext(ModalCreateProductContext)
     toast.configure()
 
     const getProducts = () =>{
@@ -75,9 +76,20 @@ export const ProductsProvider = ({ children }:ProductsProviderProps) =>{
 
         })
     }
+
+    const createProduct = (data:ProductUpdated) =>{
+        api.post(`/products`, data)
+        .then((response)=> {
+            getProducts()
+            settingShowingModal()
+
+            toast.success("Item editado com sucesso")
+
+        })
+    }
    
     return(
-        <ProductsContext.Provider value={{products,teste, getProducts, editProduct,deleteProduct}}>
+        <ProductsContext.Provider value={{products, getProducts, editProduct,deleteProduct, createProduct}}>
             { children }
         </ProductsContext.Provider>
     )
